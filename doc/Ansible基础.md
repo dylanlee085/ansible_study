@@ -46,14 +46,14 @@ ansible作用对象
 #### 3.3 ansible组件的调用关系
 在服务器终端输入ansible的Ad-hoc命令集或者playbook后，Ansible会遵循预先编排的规则将playbook逐条拆解为Play， 再将Play组织成可识别的task，随后调用task涉及的所有模块和插件，根据Inventory中定义的主机列表报通过SSH将任务集以临时文件或命令形式的传输到远程客户端执行并返回执行结果，如果是临时文件则执行完毕后自动删除。
 
-###4.Ansible通信发展史
-####4.1 Ansible SSH工作机制
+### 4.Ansible通信发展史
+#### 4.1 Ansible SSH工作机制
 Ansible执行命令时，通过其底层传输模块，将一个或者数个文件，或者定义一个play/command命令传输到远程服务器/tmp目录的临时文件，并在远程执行这些play/command, 然后删除这些临时文件，同时回传整体命令执行结果.
-####4.2 Ansible 通信发展历程
+#### 4.2 Ansible 通信发展历程
 paramiko通信模块---openssh---加速模式---fast openssh
-#####4.2.1 paramiko通信模块
+##### 4.2.1 paramiko通信模块
 最初使用paramiko通信模块实现底层通信功能，paramiko发展速度远不及openssh，性能和安全较openssh稍差
-#####4.2.2 openssh
+##### 4.2.2 openssh
 >* Ansible 0.5版本起支持openssh，1.3版本开始默认使用openssh实现各服务器间通信
 >* 如果通过非默认22端口运行命令等操作，需要在Inventory文件中配置ansible_ssh_port的值
 >* openssh 相比paramiko 更快,更可靠
@@ -90,7 +90,7 @@ accelerate_port = 5099
 >* 应用部署
 >* 配置管理
 >* 任务流编排
-###6.Ansible安装
+### 6.Ansible安装
 ```
 pip安装
 yum install python-pip python-devel  && pip install ansible
