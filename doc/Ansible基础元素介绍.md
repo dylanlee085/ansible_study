@@ -215,7 +215,7 @@ ntp_server=ntp.lee.com
 
 Ansible遵循如上优先级顺序，设置变量时尽量沿用同一种方式，便于管理
 
-####8.3 Inventory常用参数
+#### 8.3 Inventory常用参数
 ```
 ansible_ssh_port  
 ansible_ssh_user
