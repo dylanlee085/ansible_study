@@ -1,0 +1,12 @@
+---
+
+
+- name: config nginx backend
+  template: src=nginx.conf.j2 dest=/usr/local/nginx/conf/nginx.conf
+
+- name: start nginx backend
+  systemd: name=nginx state=started
+  notify: 
+    - restart nginx
+  tags: start_nginx
+ 

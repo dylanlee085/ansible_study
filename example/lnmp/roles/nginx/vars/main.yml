@@ -1,0 +1,6 @@
+---
+
+depend_software: ['pcre', 'pcre-devel', 'openssl', 'openssl-devel', 'zlib', 'zlib-devel']
+user_name: www
+user_group: www
+module: "--with-http_stub_status_module"

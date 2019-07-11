@@ -1,0 +1,21 @@
+---
+- name: mysql repo
+  copy: src=files/mysql56.repo dest=/etc/yum.repos.d/
+
+- name: install mysql
+  yum:
+    name: ['MySQL-client.x86_64', 'MySQL-devel.x86_64',  'MySQL-embedded.x86_64',  'MySQL-server.x86_64', 'MySQL-shared.x86_64',  'MySQL-shared-compat.x86_64', 'MySQL-test.x86_64']
+    enablerepo: "mysql56"
+    state: present
+
+- name: config mysql
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+  notify:
+    - restart mysql
+
+- name: create mysql data directory
+  file: path=/data/mysql state=directory owner=mysql group=mysql
+
+- name: start mysql service
+  systemd: name=mysql state=started enabled=yes
+
