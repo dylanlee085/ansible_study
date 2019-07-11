@@ -1,4 +1,0 @@
----
-
-port: 3306
-datadir: /data/mysql

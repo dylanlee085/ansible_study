@@ -1,4 +1,0 @@
----
-
-ntpserver: time.windows.com
-software: ['vim', 'lrzsz', 'sysstat', 'iotop', 'htop', 'man', 'screen', 'telnet', 'ntpdate', 'openssh-server', 'openssh-clients', 'tcpdump', 'net-tools', 'openssl', 'openssl-devel','gcc','gcc-c++']
