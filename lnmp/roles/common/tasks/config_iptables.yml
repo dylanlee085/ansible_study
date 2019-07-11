@@ -1,0 +1,12 @@
+---
+
+
+    #config iptables
+    - name: config iptables
+      service: name=iptables state=stopped enabled=no
+      when: ansible_os_family == 'RedHat' and ansible_distribution_version == '6.9'
+
+    # config firewalld
+    - name: config firewalld
+      systemd: name=firewalld state=stopped enabled=no
+      when: ansible_os_family == 'RedHat' and ansible_distribution_version == '7'

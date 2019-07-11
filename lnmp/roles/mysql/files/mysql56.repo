@@ -1,0 +1,5 @@
+[mysql56]
+name=mysql56
+baseurl=http://yum.lee.com:88/mysql56/
+gpgcheck=0
+enable=1

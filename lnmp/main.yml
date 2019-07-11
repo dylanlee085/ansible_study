@@ -1,0 +1,35 @@
+---
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: root
+
+  roles:
+    - common
+
+- name: configure and deploy nginx
+  hosts: nginx
+  remote_user: root
+
+  roles:
+    - nginx
+
+- name: configure nginx upstream proxy
+  hosts: nginx_upstream
+  remote_user: root
+
+  roles:
+    - nginx_upstream
+
+- name: configure nginx backend
+  hosts: nginx_backend
+  remote_user: root
+
+  roles:
+    - nginx_backend
+
+- name: deploy MySQL and configure the databases
+  hosts: dbserver
+  remote_user: root
+
+  roles:
+    - { role: mysql }

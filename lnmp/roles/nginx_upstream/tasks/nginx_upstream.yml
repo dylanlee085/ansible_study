@@ -1,0 +1,11 @@
+---
+
+
+- name: config upstream
+  template: src=nginx_upstream.conf.j2 dest=/usr/local/nginx/conf/nginx.conf
+
+- name: start nginx upstream
+  systemd: name=nginx state=started
+  notify:
+    - restart nginx
+  tags: start_nginx

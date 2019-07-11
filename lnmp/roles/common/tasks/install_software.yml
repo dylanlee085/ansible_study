@@ -1,0 +1,10 @@
+---
+
+    # install software
+    - name: install software
+      yum:
+        name: "{{ software }}"
+        state: present
+
+#    - name: install develop software
+#      yum: name="@Development tools" state=present
