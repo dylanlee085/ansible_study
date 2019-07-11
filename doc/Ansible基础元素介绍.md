@@ -128,7 +128,7 @@ ansible-playbook playboo.yml
 #### 5.1 ansbile-galaxy 功能
 上传和下载roles
 #### 5.2 命令格式
-````
+```
 ansible-galaxy [init|info|install|list|remove] [--help] [options] ...
 实例:
 ansible-galaxy init --help
