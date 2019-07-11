@@ -4,6 +4,7 @@
 >* /usr/lib/python2.7/site-packages/ansible        #Ansible所有lib库文件和模块文件均存放于该目录下
 >* /usr/share/doc/ansible-2.8.1         #Help文档目录
 >* /usr/share/man/man1/          #Man文档目录
+
 ![image](https://github.com/dylanlee085/ansible_study/blob/master/doc/picture/ansible_directory.png)
 
 ### 2. Ansible配置文件解析
