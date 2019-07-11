@@ -34,6 +34,7 @@ ansible作用对象
 >* 商业和非商业的网络设施
 
 #### 3.2 Ansible的组成
+ ![image]()
 
 按Ansible工具集的组成来看，可以看出Ansible主要由6部分组成:ANSIBLE PLAYBOOKS,INVENTORY,MODULES,PLUGINS,API,ANSIBLE
 
