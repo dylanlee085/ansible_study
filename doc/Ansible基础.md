@@ -21,13 +21,13 @@ Ansible使用过程中的角色分为
 >* PUBLIC/PRIVATE (基于公有云和私有云，Ansible以api调用方式运行)
 >* Ad-hoc（Ad-hoc临时命令集调用Ansible工具集完成任务目标）
 >* playbooks（通过执行playbook中预先编排好的任务集按序完成任务执行）
-#####3.1.2 Ansible工具集
+##### 3.1.2 Ansible工具集
 ansible命令是Ansible的核心工具，ansible命令并非自身完成所有的功能集，其只是Ansible执行任务的调用入口，属于"总指挥角色"， 所有命令的执行通过其"调兵遣将"最终完成。可供ansible调用的的对象有
 >* Inventory （命令执行的目标对象配置文件)
 >*  API（供第三方程序调用的应用程序编程接口）
 >* MODULES（丰富的内置模块）
 >* PLUGINS （内置和可自定义的插件）
-#####3.1.3 作用对象
+##### 3.1.3 作用对象
 ansible作用对象
 >*  HOSTS(主机)
 >* 公有云/私有云
@@ -82,8 +82,8 @@ accelerate_port = 5099
 >* 旧版本中实现方式是复制文件至远程服务器后台运行，然后删除这些临时文件，而新版本的替代方案是通过Openssh发送执行命令，将所有操作附带在SSH连接过程中同步实现.
 >* 修改/etc/ansible/ansible.cfg的[ssh_connection]区域开启pipline=True功能
 
-###5.Ansible应用场景
-####5.1 从运维操作角度可以分为
+### 5.Ansible应用场景
+#### 5.1 从运维操作角度可以分为
 >* 文件传输
 >* 命令执行
 ####5.2 自动化工作类型角度可以分为
