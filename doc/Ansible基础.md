@@ -34,7 +34,7 @@ ansible作用对象
 >* 商业和非商业的网络设施
 
 #### 3.2 Ansible的组成
- ![image]()
+![image](https://github.com/dylanlee085/ansible_study/blob/master/doc/picture/ansible_tools.png)
 
 按Ansible工具集的组成来看，可以看出Ansible主要由6部分组成:ANSIBLE PLAYBOOKS,INVENTORY,MODULES,PLUGINS,API,ANSIBLE
 
@@ -46,6 +46,7 @@ ansible作用对象
 >* ANSIBLE: Ansible命令工具，其为核心执行工具
 #### 3.3 ansible组件的调用关系
 在服务器终端输入ansible的Ad-hoc命令集或者playbook后，Ansible会遵循预先编排的规则将playbook逐条拆解为Play， 再将Play组织成可识别的task，随后调用task涉及的所有模块和插件，根据Inventory中定义的主机列表报通过SSH将任务集以临时文件或命令形式的传输到远程客户端执行并返回执行结果，如果是临时文件则执行完毕后自动删除。
+![image](https://github.com/dylanlee085/ansible_study/blob/master/doc/picture/ansible_tasks.png)
 
 ### 4.Ansible通信发展史
 #### 4.1 Ansible SSH工作机制
