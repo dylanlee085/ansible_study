@@ -1,7 +1,6 @@
 ---
 
 
-    # config ssh
     - name: create directory
       file: path=/root/.ssh state=directory owner=root group=root mode=700
 
@@ -14,9 +13,9 @@
     - name: modify config
       lineinfile: dest=/etc/ssh/sshd_config regexp='^#{{ item }}' line='{{ item }}' backrefs=yes
       with_items:
-        - RSAAuthentication
-        - PubkeyAuthentication
-        - AuthorizedKeysFile
+        - RSAAuthentication yes
+        - PubkeyAuthentication yes
+        - AuthorizedKeysFile      .ssh/authorized_keys
 
     - name: modify UseDNS
       lineinfile: dest=/etc/ssh/sshd_config regexp='#UseDNS' line='UseDNS no' backrefs=yes
@@ -26,13 +25,13 @@
 
     - name: start centos7 sshd
       systemd : name=sshd state=started enabled=yes
-      when: ansible_os_family == 'RedHat' and ansible_distribution_version == "7"
+      when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
       tags:
         - ssh
 
     
     - name: start centos6 sshd
       systemd: name=sshd state=started enabled=yes
-      when: ansible_os_family == 'RedHat' and ansible_distribution_version == "6.9"
+      when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "6"
       tags:
         - ssh

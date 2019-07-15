@@ -1,0 +1,19 @@
+---
+
+nginx_use_proxy: true
+nginx_https: false
+nginx_port: 443
+nginx_ssl_cert_name: ca.crt
+nginx_ssl_cert_key: ca.key
+nginx_server_name: www.lee.com
+nginx_web_root: /data/www
+nginx_proxies:
+  - name: guess
+    location: /
+    backend_ip: [192.168.30.160, 192.168.30.161]
+    port: [80,80]
+
+  - name: guess-api
+    location: /api
+    backend_ip: [192.168.30.160, 192.168.30.161]
+    port: [8080,8080]

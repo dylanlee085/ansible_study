@@ -1,4 +1,32 @@
 ---
 
+#########common roles##########
+
+#ntpserver
 ntpserver: time.windows.com
-software: ['vim', 'lrzsz', 'sysstat', 'iotop', 'htop', 'man', 'screen', 'telnet', 'ntpdate', 'openssh-server', 'openssh-clients', 'tcpdump', 'net-tools', 'openssl', 'openssl-devel','gcc','gcc-c++']
+
+#base software package
+software: ['vim', 'lrzsz', 'sysstat', 'iotop', 'htop', 'man', 'screen', 'telnet', 'ntpdate', 'openssh-server', 'openssh-clients', 'tcpdump', 'net-tools', 'openssl', 'openssl-devel','gcc','gcc-c++', 'wget']
+
+#disk
+config_lvm: false
+create: false
+resize: false
+extend: false
+current_disk: '/dev/sda2'
+new_disk: '/dev/sdb'
+new_mntp: '/data'
+create_vgname: 'centos'
+resize_vgname: 'cl'
+extend_vgname: 'cl'
+create_lvname: 'data'
+resize_lvname: 'root'
+extend_lvname: 'root'
+create_lvsize: '100%FREE'
+extend_disks: '{{ current_disk }},{{ new_disk }}'
+lvextend_options: '-L+10G'
+filesystem: 'ext4'
+
+
+#sysctl
+sysctl_enable: true

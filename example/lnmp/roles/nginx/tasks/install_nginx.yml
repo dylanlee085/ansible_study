@@ -1,11 +1,12 @@
 ---
+
 - name: install software
   yum:
     name: "{{ depend_software }}"
     state: present
 
 - name: download nginx
-  copy: src=files/{{ nginx_version }}.tar.gz dest=/usr/local/src/
+  copy: src={{ nginx_version }}.tar.gz dest=/usr/local/src/
   register: result
   ignore_errors: yes
 
@@ -40,6 +41,6 @@
   tags: nginx_bin
 
 - name: start script file
-  copy: src=files/nginx.service dest=/usr/lib/systemd/system/
+  copy: src=nginx.service dest=/usr/lib/systemd/system/
   tags: nginx_script
 

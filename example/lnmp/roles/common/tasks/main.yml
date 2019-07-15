@@ -1,10 +1,11 @@
 ---
 
-
+- include: config_hostname.yml
+- include: config_disk.yml
 - include: config_repo.yml
 - include: install_software.yml
-- include: config_selinux.yml
 - include: config_ssh.yml
 - include: config_ntp.yml
+- include: config_selinux.yml
 - include: config_iptables.yml
 

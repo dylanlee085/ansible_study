@@ -1,0 +1,16 @@
+---
+
+
+- name: create nginx vhost directory
+  file: path=/usr/local/nginx/conf/vhost   state=directory
+
+- name: create web directory
+  file: path={{ nginx_web_root }}   state=directory owner=www group=www
+
+- name: config nginx
+  template: src=nginx.conf.j2 dest=/usr/local/nginx/conf/vhost/{{ nginx_server_name }}.conf
+  notify:
+    - restart nginx
+
+
+

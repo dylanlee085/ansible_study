@@ -1,6 +1,5 @@
 ---
 
-    # install software
     - name: install software
       yum:
         name: "{{ software }}"

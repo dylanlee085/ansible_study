@@ -10,8 +10,6 @@
 
 - name: config mysql
   template: src=my.cnf.j2 dest=/etc/my.cnf
-  notify:
-    - restart mysql
 
 - name: create mysql data directory
   file: path=/data/mysql state=directory owner=mysql group=mysql

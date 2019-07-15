@@ -1,0 +1,15 @@
+---
+
+- name: add nginx backend
+  hosts: nginx_backend
+  remote_user: root
+  roles:
+    - config_nginx
+
+
+
+- name: add nginx upstream
+  hosts: nginx_upstream
+  remote_user: root
+  roles:
+    - config_nginx

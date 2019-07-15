@@ -1,0 +1,16 @@
+---
+
+  
+- name: config hostname
+  hostname:
+    name: "{{ hostname }}"
+
+- name: add line
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ ansible_all_ipv4_addresses[0] }} {{ hostname }}"
+
+- name: add line
+  lineinfile:
+    dest: /etc/hosts
+    line: "192.168.30.135 yum.lee.com"

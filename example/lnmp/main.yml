@@ -18,14 +18,14 @@
   remote_user: root
 
   roles:
-    - nginx_upstream
+    - nginx
 
 - name: configure nginx backend
   hosts: nginx_backend
   remote_user: root
 
   roles:
-    - nginx_backend
+    - nginx
 
 - name: deploy MySQL and configure the databases
   hosts: dbserver

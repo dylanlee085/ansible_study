@@ -1,14 +1,15 @@
+[all]
+192.168.30.159 hostname=ansible ansible_ssh_user=root ansible_ssh_pass=yunwei
+192.168.30.160 hostname=node2 ansible_ssh_user=root ansible_ssh_pass=yunwei
+192.168.30.161 hostname=node3 ansible_ssh_user=root ansible_ssh_pass=yunwei
+192.168.30.162 hostname=node4 ansible_ssh_user=root ansible_ssh_pass=yunwei
 [dbserver]
-192.168.30.154 ansible_ssh_user='root' ansible_ssh_pass='yunwei'
-
+192.168.30.160 ansible_ssh_user=root ansible_ssh_pass=yunwei
 [nginx_upstream]
-192.168.30.152 ansible_ssh_user='root' ansible_ssh_pass='yunwei'
-
+192.168.30.162
 [nginx_backend]
-192.168.30.153 ansible_ssh_user='root' ansible_ssh_pass='yunwei'
-192.168.30.154 ansible_ssh_user='root' ansible_ssh_pass='yunwei'
-
+192.168.30.160
+192.168.30.161
 [nginx:children]
 nginx_upstream
 nginx_backend
-

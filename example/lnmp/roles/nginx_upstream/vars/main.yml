@@ -1,6 +1,0 @@
----
-
-server_name: "www.lee.com"
-upstream_name: first
-backend_port: 80
-backend_ip: [192.168.30.153, 192.168.30.154]
