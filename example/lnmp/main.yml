@@ -13,6 +13,14 @@
   roles:
     - nginx
 
+- name: configure and deploy php
+  hosts: php
+  remote_user: root
+
+  roles:
+    - php
+  tags: php
+
 - name: configure nginx upstream proxy
   hosts: nginx_upstream
   remote_user: root

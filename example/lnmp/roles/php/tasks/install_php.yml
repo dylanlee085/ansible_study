@@ -1,0 +1,10 @@
+---
+
+- name: install php
+  yum:
+    name: "{{ php_package }}"
+    state: present
+
+
+- name: start php-fpm
+  systemd: name=php-fpm state=started
