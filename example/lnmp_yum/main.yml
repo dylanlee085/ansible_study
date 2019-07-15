@@ -1,0 +1,5 @@
+---
+
+- include: install_nginx
+- include: install_php
+- include: install_mysql
