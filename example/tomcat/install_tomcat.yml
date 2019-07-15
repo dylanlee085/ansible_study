@@ -1,0 +1,29 @@
+---
+
+- name: create install_directory
+  file: path=/data/web state=directory
+
+- block:
+    - file: path=/data/web state=directory
+    - shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ name }}/
+  rescue:     
+    - copy: src={{ tomcat_package }}.tar.gz dest=/usr/local/src/
+    - unarchive: src=/usr/local/src/{{ tomcat_package }}.tar.gz dest=/usr/local/src/ copy=no
+    - shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ name }}/
+   
+- name: generation tomcat config file
+  template: src=server.xml.j2 dest=/data/web/{{ name }}/conf/server.xml
+
+#  template: src=server.xml.j2 dest=/data/web/{{ item.name }}/conf/server.xml
+#  with_items:
+#    - "{{ info }}"
+
+- name: create setenv.sh file
+  copy: src=files/setenv.sh dest=/data/web/{{ name }}/bin/
+
+- name: create start script
+  template: src=tomcat.service dest=/usr/lib/systemd/system/{{ name }}.service
+
+- name: start tomcat
+  systemd: name={{ name }} state=started enabled=yes daemon-reload=yes
+

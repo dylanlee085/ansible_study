@@ -1,0 +1,10 @@
+---
+
+- name: install mysql_repo
+  yum: name="http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm" state=present
+
+- name: install mysql
+  yum: name=['mysql-community-server','mysql-community-devel'] state=present
+
+- name: start mysql
+  systemd: name=mysql state=started

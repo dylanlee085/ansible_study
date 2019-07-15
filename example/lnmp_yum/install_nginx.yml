@@ -2,7 +2,7 @@
 
 - name: install nginx_repo(centos7)
   yum: name="http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm" state=present
-  when: when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
 
 - name: install nginx_repo(centos6)
   yum: name="http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm" state=present

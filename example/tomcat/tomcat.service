@@ -1,0 +1,14 @@
+[Unit]
+Description={{ name }}
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/data/web/{{ name }}/tomcat.pid
+ExecStart=/data/web/{{ name }}/bin/startup.sh
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

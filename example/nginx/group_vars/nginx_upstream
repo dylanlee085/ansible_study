@@ -5,15 +5,15 @@ nginx_https: false
 nginx_port: 443
 nginx_ssl_cert_name: ca.crt
 nginx_ssl_cert_key: ca.key
-nginx_server_name: www1.lee.com
+nginx_server_name: tomcat.lee.com
 nginx_web_root: /data/www1
 nginx_proxies:
-  - name: game
+  - name: tomcat
     location: /
     backend_ip: [192.168.30.160, 192.168.30.161]
-    port: [80,80]
+    port: [8005,8005]
 
-  - name: game-api
-    location: /game-api
-    backend_ip: [192.168.30.160, 192.168.30.161]
-    port: [8080,8080]
+#  - name: game-api
+#    location: /tomcat-api
+#    backend_ip: [192.168.30.160, 192.168.30.161]
+#    port: [8080,8080]

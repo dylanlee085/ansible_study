@@ -1,0 +1,22 @@
+---
+
+- hosts: tomcat
+  vars:
+    jdk_package: ["java-1.8.0-openjdk","java-1.8.0-openjdk-devel"]
+    tomcat_package: "apache-tomcat-8.5.43"
+
+    #project info
+    name: "jenkins"
+    server_port: 8005
+    connector_port: 8081
+#    info:
+#      - name: "jenkins"
+#        server_port: 8005
+#        connector_port: 8081
+#      - name: "lab"
+#        server_port: 8006
+#        connector_port: 8082
+
+  tasks:
+  - include: install_java.yml
+  - include: install_tomcat.yml

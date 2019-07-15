@@ -1,5 +1,6 @@
 ---
-
-- include: install_nginx
-- include: install_php
-- include: install_mysql
+- hosts: 192.168.30.159
+  tasks:
+  - include: install_nginx.yml
+  - include: install_php.yml
+  - include: install_mysql.yml

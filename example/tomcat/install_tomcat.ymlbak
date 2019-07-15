@@ -1,0 +1,50 @@
+---
+
+#- name: create install_directory
+#  file: path=/data/web state=directory
+
+#- name: copy tomcat file 
+#  shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ name }}/
+
+- block:
+    - file: path=/data/web state=directory
+    - shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ name }}/
+  rescue:     
+    - copy: src={{ tomcat_package }}.tar.gz dest=/usr/local/src/
+    - unarchive: src=/usr/local/src/{{ tomcat_package }}.tar.gz dest=/usr/local/src/ copy=no
+    - shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ name }}/
+   
+#- name: copy tomcat tar package
+#  copy: src={{ tomcat_package }}.tar.gz dest=/usr/local/src/
+#
+#- name: unarchive tomcat tar package
+#  unarchive: src=/usr/local/src/{{ tomcat_package }}.tar.gz dest=/usr/local/src/ copy=no
+#
+#
+#
+#  shell: \cp -rv /usr/local/src/{{ tomcat_package }}/ /data/web/{{ item.name }}/
+#  with_items:
+#    - "{{ info }}"
+#  ingnore_errors: yes
+
+- name: generation tomcat config file
+  template: src=server.xml.j2 dest=/data/web/{{ name }}/conf/server.xml
+
+#  template: src=server.xml.j2 dest=/data/web/{{ item.name }}/conf/server.xml
+#  with_items:
+#    - "{{ info }}"
+
+
+- name: create start script
+  template: src=tomcat.service dest=/usr/lib/systemd/system/{{ name }}.service
+
+#  template: src=tomcat.service dest=/usr/lib/systemd/system/{{ item.name }}.service
+#  with_items:
+#    - "{{ info }}"
+
+- name: start tomcat
+  systemd: name={{ name }} state=started enabled=yes daemon-reload=yes
+
+#  systemd: name={{ item.name }} state=started enable=yes daemon-reload=yes
+#  with_items:
+#    - "{{ info }}"
